@@ -32,7 +32,7 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== FOOTNOTES ============================== -->
 <!-- ======================================================================= -->
-[^1]: 20080501, [Github Repo](https://github.com/YOUR_USER_NAME_HERE/YOUR_REPO_NAME_HERE)
+[^1]: 20080501, [Github Repo](https://github.com/cnktxd/Midterm1.git)
 
 # Important Information About Midterm
 
@@ -50,6 +50,10 @@ This outline has been created to assist you in writing your project assignment. 
 The sections in your project assignment must necessarily include the sections in this text (except the first section, of course). Apart from the sections used here, you can use different subsections. When writing your project, use this file as a draft and adapt its content to your purposes.
 
 In this section, mention the purpose and importance of your work in a few paragraphs.
+
+The purpose of my work is to investigate the dataset about nuclear explosions. By editing the given dataset, I removed the rows that included "NA" values and also deleted the columns that were no use to me such as "magnitude_body" and "magnitude_surface". 
+
+The question I decided on is "In which test site did the USA conduct the most nuclear tests?". To do this, I had to create a subset that had only the tests of USA and from that dataset I created another and the final dataset named "n_occur" that has the names of the nuclear test sites of USA and also how many times those names were repeated. With this data, I am able to see the most occuring name which is "NTS". The variable "NTS" occured for 902 times which meant that the USA conducted most of it's nuclear tests in NTS.  
 
 ## Literature Review
 
