@@ -48,7 +48,7 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 
 The purpose of my work is to investigate the dataset about nuclear explosions. By editing the given dataset, I removed the rows that included "NA" values and also deleted the columns that were no use to me such as "magnitude_body" and "magnitude_surface". The other variables are: date_long(Shows the complete date of the testing), year, country(Which country conducted the test), region(Where the test was conducted at), latitude, longitude, depth, yield_lower, yield_higher, purpose(Why the test was conducted for), name(Name of the detonated warhead) and type(How the nuclear test was conducted). I found this data from "https://github.com/rfordatascience/tidytuesday". With cropping the rows that had "NA" values, I have 1382 entries in total.
 
-The questions I decided on are "In which test site did the USA conduct the most nuclear tests?" and "Where did France conduct it's nuclear tests at". These questions are related to the 4 articles I have found and they provided me with extra information I stated in the literature review section. Also from the dataset I can gather the needed data by using some functional codes. 
+The questions I decided on are "In which test site did the USA conduct the most nuclear tests?" and "Where did France conduct it's nuclear tests at". These questions are related to the 4 articles I have found and they provided me with extra information I stated in the literature review section. Also from the dataset, I can gather the needed data by using some functional codes. 
 
 ## Literature Review
 
