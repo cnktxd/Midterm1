@@ -1,5 +1,5 @@
 ---
-title: "Nuclear Explosion Testings"
+title: "Nuclear Explosion Tests"
 author: 
   - Soyugur, Cankat[^1]
 bibliography: ../bibliography/biblio.bib

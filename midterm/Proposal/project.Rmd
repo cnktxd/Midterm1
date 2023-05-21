@@ -1,7 +1,7 @@
 ---
-title: "Title"
+title: "Nuclear Explosion Tests"
 author: 
-  - Last Name, First Name[^1]
+  - Soyugur, Cankat[^1]
 bibliography: ./bibliography/biblio.bib
 csl: ./csl/apa.csl
 header-includes:
@@ -25,7 +25,7 @@ urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
 abstract: |
-  Write your abstract here.
+  This research is about the nuclear explosion testings that happened between 1945 and 1998. In this research the tests of the USA and France will be discussed with regards to the questions given. The main dataset(nuclear_explosions) contains 14 variables that shows the related information about the explosions such as upper and lower yield. The second(n_occur) has 2 variables.
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== FOOTNOTES ============================== -->
 <!-- ======================================================================= -->
-[^1]: Student ID
+[^1]: 20080501
 
 # Introduction
 The purpose of my work is to investigate the dataset about nuclear explosions. By editing the given dataset, I removed the rows that included "NA" values and also deleted the columns that were no use to me such as "magnitude_body" and "magnitude_surface". The other variables are: date_long(Shows the complete date of the testing), year, country(Which country conducted the test), region(Where the test was conducted at), latitude, longitude, depth, yield_lower, yield_higher, purpose(Why the test was conducted for), name(Name of the detonated warhead) and type(How the nuclear test was conducted). I found this data from "https://github.com/rfordatascience/tidytuesday". With cropping the rows that had "NA" values, I have 1382 entries in total.
@@ -58,8 +58,9 @@ For the second question which is "How did France conduct it's nuclear tests?", i
 
 ```{r}
 library(tidyverse)
+library(readr)
 nuclear_explosions <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-20/nuclear_explosions.csv")
-
+n_occur <- read_csv("C:/Users/canso/Desktop/Midterm1/midterm/Proposal/data/n_occur.csv")
 ```
 
 ```{r results='asis'}
@@ -90,12 +91,9 @@ This section should also include different tables and plots. You can add histogr
 
 
 ```{r plot, fig.align='center', fig.cap='An Awesome Plot'}
-n_occur %>% 
-  ggplot(aes(x = region, y = Freq)) +
-  geom_point() +
-  geom_smooth() +
-  scale_x_continuous("Region") + 
-  scale_y_continuous("Frequency")
+ggplot(n_occur) +
+  aes(x = Freq) +
+  geom_histogram()
 ```
 
 
