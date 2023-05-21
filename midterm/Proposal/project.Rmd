@@ -1,9 +1,9 @@
 ---
-title: "Nuclear Explosion Testings"
+title: "Title"
 author: 
-  - Soyugur, Cankat[^1]
-bibliography: ../bibliography/biblio.bib
-csl: ../csl/apa.csl
+  - Last Name, First Name[^1]
+bibliography: ./bibliography/biblio.bib
+csl: ./csl/apa.csl
 header-includes:
   - \usepackage{polyglossia}
   - \setmainlanguage{english}
@@ -24,6 +24,8 @@ link-citations: yes
 urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
+abstract: |
+  Write your abstract here.
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
@@ -32,14 +34,14 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== FOOTNOTES ============================== -->
 <!-- ======================================================================= -->
-[^1]: 20080501, [Github Repo](https://github.com/cnktxd/Midterm1.git)
-
+[^1]: Student ID
 
 # Introduction
-
 The purpose of my work is to investigate the dataset about nuclear explosions. By editing the given dataset, I removed the rows that included "NA" values and also deleted the columns that were no use to me such as "magnitude_body" and "magnitude_surface". The other variables are: date_long(Shows the complete date of the testing), year, country(Which country conducted the test), region(Where the test was conducted at), latitude, longitude, depth, yield_lower, yield_higher, purpose(Why the test was conducted for), name(Name of the detonated warhead) and type(How the nuclear test was conducted). I found this data from "https://github.com/rfordatascience/tidytuesday". With cropping the rows that had "NA" values, I have 1382 entries in total.
 
 The questions I decided on are "In which test site did the USA conduct the most nuclear tests?" and "Where did France conduct it's nuclear tests at". These questions are related to the 4 articles I have found and they provided me with extra information I stated in the literature review section. Also from the dataset, I can gather the needed data by using some functional codes. 
+
+In this research, there will be 2 researches about 2 different questions. For the first question, I will compare the most occurances of US nuclear tests in different test sites and for the second question, I will create another occurance list of French nuclear tests by "Type" which shows the method that the nuclear test was conducted by. In both researches, I will create and use graphs that will make the research easier to understand.
 
 ## Literature Review
 
@@ -51,10 +53,58 @@ For the second question which is "How did France conduct it's nuclear tests?", i
 
 
 
+# Data
 
 
+```{r}
+library(tidyverse)
+nuclear_explosions <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-20/nuclear_explosions.csv")
+
+```
+
+```{r results='asis'}
+library(xtable) 
+library(summarytools)
+st_options(lang = "en")
+
+nuclear_explosions %>%
+    select("date_long", "year", "id_no", "country", "region", "source","latitude","longitude","depth","yield_lower","yield_upper","purpose","name","type") %>% 
+    descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
+    xtable(caption = "Summary Statistics",
+           label = "tab:summary",
+           align = c("l", "c", "c", "c", "c", "c")) %>% 
+    print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
+```
 
 
+# Methods and Data Analysis
+In this section describe the methods that you use to achieve the purpose of the study. You should use the appropriate analysis methods (such as hypothesis tests and correlation analysis) that we covered in the class. If you want, you can also use other methods that we haven't covered. If you think some method is more suitable for the purpose of the analysis and the data set, you can use that method.
+
+For example, if you are performing regression analysis, discuss your predicted equation in this section. Write your equations and mathematical expressions using $LaTeX$.
+
+$$
+Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
+$$
+
+This section should also include different tables and plots. You can add histograms, scatter plots (such as Figure \@ref(fig:plot)), box plots, etc. Make the necessary references to your figures as shown in the previous sentence.
+
+
+```{r plot, fig.align='center', fig.cap='An Awesome Plot'}
+n_occur %>% 
+  ggplot(aes(x = region, y = Freq)) +
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous("Region") + 
+  scale_y_continuous("Frequency")
+```
+
+
+# Conclusion
+Summarize the results of your analysis in this section. Discuss to what extent your results responded to the research question you identified at the beginning and how this work could be improved in the future.
+
+**References section is created automatically by Rmarkdown. There is no need to change the references section in the draft file.**
+
+**_You shouldn't delete the last 3 lines. Those lines are required for References section._**
 
 \newpage
 # References {#references}
