@@ -25,9 +25,7 @@ urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
-```
+
 
 <!-- ======================================================================= -->
 <!-- ============================== FOOTNOTES ============================== -->
